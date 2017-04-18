@@ -1,0 +1,24 @@
+body{
+	font: 12px  Arial,"Microsoft yYaHei", Helvetica, sans-serif;
+	color:#333;
+	background-color:#fcfcfc;
+}
+html, body, img, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, b, u, i, p, td, th,form,input, textarea, label, select, iframe,em {
+	margin:0px;
+	padding:0px;
+	border:none;
+	list-style:none;
+	outline: none;
+}
+a{
+	text-decoration:none;
+	color:#3b3c3e;
+	cursor:pointer;
+}
+.lf{float:left;}
+.rt{float:right;}
+.cf:before,.cf:after{
+	content:"";
+	display:table;
+.cf:after{clear:both;}
+}

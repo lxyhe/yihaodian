@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="CSS/common.css"/>
+    <link rel="stylesheet" href="CSS/register.css"/>
+    <link rel="stylesheet" href="CSS/index.css"/>
+</head>
+<body>
+    <div id="request_header"></div>
+    <hr/>
+    <div class="register_h">
+        <div class="register_page">
+            <form id="form">
+                <h1>用户注册页面</h1>
+                <ul class="register_column">
+                    <li class="form_group">
+                        <span>账户名称</span>
+                        <input type="text" id="username" placeholder="请输入账户名称" required />
+                        <span></span>
+                    </li>
+                    <li>
+                        <span>账户密码</span>
+                        <input type="password" id="password" placeholder="请输入账户密码" pattern="\w{6,12}" required/>
+                        <span></span>
+                    </li>
+                    <li>
+                        <span>确认密码</span>
+                        <input type="password" id="prov_pwd" required placeholder="请再次输入密码"/>
+                        <span></span>
+                    </li>
+                    <li>
+                        <span>电子邮件</span>
+                        <input type="email" id="email" required multiple placeholder="请输入电子邮件"/>
+                        <span></span>
+                    </li>
+                    <li>
+                        <span>手机号码</span>
+                        <input type="text" id="pho_num" pattern="^1[3-8]\d{9}$" required placeholder="请输入您的手机号"/>
+                        <span></span>
+                    </li>
+                    <li>
+                        <span>输入验证</span>
+                        <input type="text" id="proving"  placeholder="请输入验证码"/>
+                        <span>
+                            <canvas id="c1" width="120" height="40"></canvas>
+                            <a href="#" id="change">看不清，换一张</a>
+                        </span>
+                    </li>
+                </ul>
+                <input type="button" id="register_btt" value="注  册"/>
+            </form>
+            <div class="register_succee">
+                <h1>注册成功,欢迎您，<b></b></h1>
+                <h3><b>5</b>秒后将为您跳转到主页</h3>
+                <hr/>
+                <a href="index.html" id="skip" class="skip">进入主页</a>
+            </div>
+        </div>
+    </div>
+    <div id="request_footer"></div>
+    <script src="JS/jquery-1.11.3.js"></script>
+    <script src="JS/proving.js"></script>
+    <script src="JS/register.js"></script>
+    <script src="JS/index.js"></script>
+</body>
+</html><!--

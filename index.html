@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	 <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="stylesheet" href="CSS/common.css">
+  <link rel="stylesheet" href="CSS/index.css">
+  <link rel="stylesheet" href="CSS/login.css"/>
+  <link rel="stylesheet" href="CSS/animation.css"/>
+  <style>
+		 #buy-stat-container {
+			 float: left;
+			 width: 1000px;
+		 }
+		 #luck-lottery-container {
+			 float: left;
+			 text-align: center;
+			 width: 1000px;
+		 }
+		 .selected{
+			 color:#e4393c;
+			 font-weight:bold;
+		 }
+  </style>
+ </head>
+ <body>
+ <div class="top_return"></div>
+ <div class="modal">
+	 <div class="modal-dialog">
+		 <div class="modal-content">
+			 <div class="login-form">
+				 <div class="login-tab login-tab-l">
+					 <a href="javascript:void(0)" style="outline: rgb(109, 109, 109) none 0px;">
+						 扫码登录
+					 </a>
+				 </div>
+				 <div class="login-tab login-tab-r">
+					 <a href="javascript:void(0)" class="checked" style="outline: rgb(109, 109, 109) none 0px;">
+						 账户登录
+					 </a>
+				 </div>
+				 <div class="login-box" style="visibility: visible; display: block;">
+					 <div class="mt tab-h">
+					 </div>
+					 <div class="msg-wrap">
+						 <div class="msg-warn"><b></b>公共场所不建议自动登录，以防账号丢失</div>
+						 <div class="msg-error" style="display: none;"><b></b></div>
+					 </div>
+					 <div class="mc">
+						 <div class="form">
+
+							  <form id="formlogin" action="PHP/login.php" method="post" onsubmit="return false;">
+								 <div class="item item-fore1">
+									 <label for="loginname" class="login-label name-label"></label>
+									 <input id="loginname" type="text" class="itxt" name="loginname" tabindex="1" autocomplete="off" placeholder="邮箱/用户名/已验证手机">
+								 </div>
+								 <div id="entry" class="item item-fore2" style="visibility: visible;">
+									 <label class="login-label pwd-label" for="loginpwd"></label>
+									 <input type="password" id="loginpwd" name="loginpwd" class="itxt itxt-error" tabindex="2" autocomplete="off" placeholder="密码">
+								 </div>
+								 <div class="item item-fore5">
+									 <div class="login-btn">
+										 <a href="#" class="btn-img btn-entry" id="loginsubmit" tabindex="6">登&nbsp;&nbsp;&nbsp;&nbsp;录</a>
+									 </div>
+								 </div>
+							 </form>
+						 </div>
+					 </div>
+				 </div>
+			 </div>
+		 </div>
+	 </div>
+ </div>
+ 	<div id="roll_search">
+		<div class="all_product lf">
+			<div class="all_product_classify">所有商品分类</div>
+			<div class="product_popup_news">
+				<ul>
+					<li><a>进口食品、生鲜、海购</a></li>
+					<li><a>食品、饮料、酒</a></li>
+					<li><a>母婴、玩具、童装</a></li>
+					<li><a>厨卫清洁、纸、清洁剂</a></li>
+					<li><a>家具、家装、宠物</a></li>
+					<li><a>美妆，个人护理，洗护</a></li>
+					<li><a>女装内衣、男装、配饰</a></li>
+					<li><a>鞋靴、箱包、户外运动</a></li>
+					<li><a>手机、数码、电脑办公</a></li>
+					<li><a>大家电、小家电、汽车</a></li>
+					<li><a>保健滋补、医药、成人</a></li>
+					<li><a>李平卡、页游、图书</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="search_article">
+			<ul class="search">
+				<li class='product_search'><a>商品</a><i></i></li>
+				<li class='search_frame'>
+					<input type="text" placeholder='夏季洗护直击低价 1元赢金条'>
+					<ul class="suggest"></ul>
+				</li>
+				<li class='search_but'>搜索</li>
+			</ul>
+			<ul class='hot_search'>
+				<li><a>冰点低价</a></li>
+				<li><a>毛巾</a></li>
+				<li><a>保鲜盒</a></li>
+				<li><a>华为P9</a></li>
+				<li><a>米</a></li>
+				<li><a>水</a></li>
+				<li><a>巧克力</a></li>
+				<li><a>保鲜袋</a></li>
+				<li><a>自拍杆通用</a></li>
+				<li><a>薇婷</a></li>
+				<li><a>啤酒</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="request_header"></div>
+	<hr/>
+	<div id="classify_search"></div>
+	<div id="banner">
+		<ul id="menu" style="display:none">
+			<li>
+				<h3>
+					<a href="#my-order-container" class="">我的订单</a>
+				</h3>
+			</li>
+			<li>
+				<h3>
+					<a href="#buy-stat-container" class="">消费统计</a>
+				</h3>
+			</li>
+			<li>
+				<h3>
+					<a href="#luck-lottery-container" class="">幸运抽奖</a>
+				</h3>
+			</li>
+		</ul>
+		<div id="huatu">
+			<div id="my-order-container" class="active" style="display:none">
+				<table id="order-table">
+					<thead>
+					<tr>
+						<th>订单信息</th>
+						<th>收货人</th>
+						<th>订单金额</th>
+						<th>
+							<select id="">
+								<option value="m1">最近一个月</option>
+								<option value="m3">最近三个月</option>
+								<option value="m6">最近半年</option>
+							</select>
+						</th>
+						<th>
+							<select id="">
+								<option value="0">全部状态</option>
+								<option value="1">等待付款</option>
+								<option value="2">派货中</option>
+								<option value="3">订单完成</option>
+							</select>
+						</th>
+						<th>操作</th>
+					</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+				<ul class="pager"></ul>
+			</div>
+			<div id="buy-stat-container" style="display:block"><iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe><iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+				<canvas id="canvas-buy-stat" width="1000px" height="407px" style="display: block; width: 1000px; height: 407px;">
+					您的浏览器不支持Canvas绘图！
+				</canvas>
+			</div>
+			<div id="luck-lottery-container" style="display:none">
+				<button id="bt-lottery" type="button">总共抽奖次数为3次,剩余0次</button> <br><br>
+				<canvas id="canvas-lottery" width="1000px" height="500px"></canvas>
+			</div>
+		</div>
+		<div id="banner_change">
+			<ul class="img_box"></ul>
+			<ol class="num_box"></ol>
+			<div class="arrow">
+				<a href="" class="forward"></a>
+				<a href="" class="backward"></a>
+			</div>
+		</div>
+	</div>
+	<div id="main">
+		<div class="fiery_recommend">
+			<ul class="fiery_fund_1">
+				<li>
+					<img src="images/CgQI0Fcd6USACYkAAAAnSLtfxPg53300.jpg" alt=""/>
+					<p>进口洋厨房</p>
+					<h3>没吃过的素食<br>爆款<b>5</b>折起</h3>
+				</li><b></b>
+				<li>
+					<img src="images/milk.jpg" alt=""/>
+					<p>多国好奶</p>
+					<h3>原装进口<br>爆款<b>5.9</b>起</h3>
+				</li><b></b>
+				<li>
+					<img src="images/ham.jpg" alt=""/>
+					<p>进口休闲</p>
+					<h3>买1送1<br>爆款<b>3</b>折起</h3>
+				</li><b></b>
+				<li>
+					<img src="images/feeder.jpg" alt=""/>
+					<p>哺育喂养</p>
+					<h3>满<b>1</b>件<b>7.7</b>折</h3>
+				</li>
+				<li>
+					<img src="images/desk.jpg" alt=""/>
+					<p>家纺布衣</p>
+					<h3>买<b>1</b>送<b>1</b></h3>
+				</li><b></b>
+				<li>
+					<img src="images/cosmetic.jpg" alt=""/>
+					<p>口腔护理</p>
+					<h3>满<b>168</b>减<b>68</b></h3>
+				</li><b></b>
+				<li>
+					<img src="images/cookie.jpg" alt=""/>
+					<p>饼干</p>
+					<h3>满<b>39</b>减<b>9</b></h3>
+				</li><b></b>
+				<li>
+					<img src="images/work.jpg" alt=""/>
+					<p>办公打印</p>
+					<h3>满<b>99</b>减<b>10</b></h3>
+				</li>
+			</ul>
+			<a>&gt;</a>
+		</div>
+		<div class="recommend">
+			<ul>
+				<li><img src="images/now_roll.jpg" alt=""/></li>
+				<li>
+					<div>
+						<h3>进口美食 买1送1</h3>
+						<p>巧克力夹心饼干</p>
+						<a>买1送1</a>
+						<img src="images/inlet_food.jpg" alt=""/>
+					</div>
+					<div>
+						<h3>特产中国 金字火腿</h3>
+						<p>金华梅干菜肉酥饼</p>
+						<a>香脆舒爽</a>
+						<img src="images/cake.jpg" alt=""/>
+					</div>
+				</li>
+				<li>
+					<div>
+						<h3>剁手价</h3>
+						<p>百味草 芒果干120g/..</p>
+						<a>0.9元</a>
+						<img src="images/mango.jpg" alt=""/>
+					</div>
+					<div>
+						<h3>新品上市 0元试用</h3>
+						<p>陶瓷工艺 永不磨刀</p>
+						<a>0元</a>
+						<img src="images/cook_chopper.jpg" alt=""/>
+					</div>
+				</li>
+				<li><img src="images/super_flash_shop.jpg" alt=""/></li>
+				<li>
+					<div>
+						<h3>手机家电城</h3>
+						<p>魅族MX6新品开售</p>
+						<a>&yen;1999</a>
+						<img src="images/phone.jpg" alt=""/>
+					</div>
+					<div>
+						<h3>山姆会员商店</h3>
+						<p>MM精选蘑菇350g</p>
+						<a>比门店原价省7.0</a>
+						<img src="images/mushroom.jpg" alt=""/>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<img src="images/ChEi2le79SOALfZFAAHGifB6nW815100.jpg" alt=""/>
+		<ul class="elevator" id="elevator">
+			<li class="handler">
+				<a href="javascript:;">1F</a>
+				<a class="etitle" href="javascript:;">进口海购</a>
+			</li>
+			<li class="handler">
+				<a href="javascript:;">2F</a>
+				<a class="etitle" href="javascript:;">活色生鲜</a>
+			</li>
+			<li class="handler">
+				<a href="javascript:;">3F</a>
+				<a class="etitle" href="javascript:;">个人厨卫</a>
+			</li>
+			<li class="handler">
+				<a href="javascript:;">4F</a>
+				<a class="etitle" href="javascript:;">家居产品</a>
+			</li>
+		</ul>
+		<div class="product_recommend" id="f1">
+			<div class="pro_nav">
+				<p class="lf">
+					进口 · 海购
+					<a><b></b>台湾零食有哪些？</a>
+				</p>
+				<ul class="rt">
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;进口酒&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;进口冲饮&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;进口直采&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;海购轻奢&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;海购电器&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;海购母婴</li>
+				</ul>
+			</div>
+			<ul class="product_content">
+				<li class="pro_rec">
+					<ul>
+						<li><a>进口牛奶</a></li>
+						<li><a>进口饼干</a></li>
+						<li><a>鱼肉海味</a></li>
+						<li><a>进口坚果</a></li>
+						<li><a>进口咖啡</a></li>
+						<li><a>进口粮油</a></li>
+					</ul>
+					<img src="images/fruit.jpg"/>
+				</li>
+				<li class="replace_show">
+					<ul class="replace_show_holder"></ul>
+					<ul class="plan_strip"></ul>
+				</li>
+				<li>
+					<div>
+						<h3>爆款5折起</h3>
+						<p>进口水饮买1送1</p>
+						<img src="images/ChEi2leQLgmAFCEXAAAlM_5kJ1090900.jpg"/>
+					</div>
+					<div>
+						<h3>买1送1</h3>
+						<p>进口休闲零食</p>
+						<img src="images/ChEbuleQlcCAeSqcAAAun3_riBc60500.jpg"/>
+					</div>
+				</li>
+				<li>
+					<h3>进口牛奶品类中心</h3>
+					<p>爆款5.9元起</p>
+					<img src="images/ChEbvFeYeoWAYOcPAABAiSuI10405100.jpg"/>
+				</li>
+				<li>
+					<div>
+						<h3>兰蔻粉水179元</h3>
+						<p>约惠七夕浪漫开团</p>
+						<img src="images/white_water.jpg"/></div>
+					<div>
+						<h3>Vera Wang公主香水</h3>
+						<p>浪漫香水约会七夕</p>
+						<img src="images/perfume.jpg"/></div>
+				</li>
+			</ul>
+		</div>
+		<div class="product_recommend" id="f2">
+			<div class="pro_nav">
+				<p class="lf">
+					活色生鲜
+					<a><b></b>台湾零食有哪些？</a>
+				</p>
+				<ul class="rt">
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;进口酒&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;进口冲饮&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;进口直采&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;海购轻奢&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;海购电器&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;海购母婴</li>
+				</ul>
+			</div>
+			<ul class="product_content">
+				<li class="pro_rec">
+					<ul>
+						<li><a>进口牛奶</a></li>
+						<li><a>进口饼干</a></li>
+						<li><a>鱼肉海味</a></li>
+						<li><a>进口坚果</a></li>
+						<li><a>进口咖啡</a></li>
+						<li><a>进口粮油</a></li>
+					</ul>
+					<img src="images/fruit.jpg"/>
+				</li>
+				<li class="replace_show">
+					<ul class="replace_show_holder1"></ul>
+					<ul class="plan_strip1"></ul>
+				</li>
+				<li>
+					<div>
+						<h3>爆款5折起</h3>
+						<p>进口水饮买1送1</p>
+						<img src="images/ChEi2leQLgmAFCEXAAAlM_5kJ1090900.jpg"/>
+					</div>
+					<div>
+						<h3>买1送1</h3>
+						<p>进口休闲零食</p>
+						<img src="images/ChEbuleQlcCAeSqcAAAun3_riBc60500.jpg"/>
+					</div>
+				</li>
+				<li>
+					<h3>进口牛奶品类中心</h3>
+					<p>爆款5.9元起</p>
+					<img src="images/ChEbvFeYeoWAYOcPAABAiSuI10405100.jpg"/>
+				</li>
+				<li>
+					<div>
+						<h3>兰蔻粉水179元</h3>
+						<p>约惠七夕浪漫开团</p>
+						<img src="images/white_water.jpg"/></div>
+					<div>
+						<h3>Vera Wang公主香水</h3>
+						<p>浪漫香水约会七夕</p>
+						<img src="images/perfume.jpg"/></div>
+				</li>
+			</ul>
+		</div>
+		<div class="product_recommend" id="f3">
+			<div class="pro_nav">
+				<p class="lf">
+					个人厨卫
+					<a><b></b>台湾零食有哪些？</a>
+				</p>
+				<ul class="rt">
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;进口酒&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;进口冲饮&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;进口直采&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;海购轻奢&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;海购电器&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;海购母婴</li>
+				</ul>
+			</div>
+			<ul class="product_content">
+				<li class="pro_rec">
+					<ul>
+						<li><a>进口牛奶</a></li>
+						<li><a>进口饼干</a></li>
+						<li><a>鱼肉海味</a></li>
+						<li><a>进口坚果</a></li>
+						<li><a>进口咖啡</a></li>
+						<li><a>进口粮油</a></li>
+					</ul>
+					<img src="images/fruit.jpg"/>
+				</li>
+				<li class="replace_show">
+					<ul class="replace_show_holder2"></ul>
+					<ul class="plan_strip2"></ul>
+				</li>
+				<li>
+					<div>
+						<h3>爆款5折起</h3>
+						<p>进口水饮买1送1</p>
+						<img src="images/ChEi2leQLgmAFCEXAAAlM_5kJ1090900.jpg"/>
+					</div>
+					<div>
+						<h3>买1送1</h3>
+						<p>进口休闲零食</p>
+						<img src="images/ChEbuleQlcCAeSqcAAAun3_riBc60500.jpg"/>
+					</div>
+				</li>
+				<li>
+					<h3>进口牛奶品类中心</h3>
+					<p>爆款5.9元起</p>
+					<img src="images/ChEbvFeYeoWAYOcPAABAiSuI10405100.jpg"/>
+				</li>
+				<li>
+					<div>
+						<h3>兰蔻粉水179元</h3>
+						<p>约惠七夕浪漫开团</p>
+						<img src="images/white_water.jpg"/></div>
+					<div>
+						<h3>Vera Wang公主香水</h3>
+						<p>浪漫香水约会七夕</p>
+						<img src="images/perfume.jpg"/></div>
+				</li>
+			</ul>
+			</div>
+		<div class="product_recommend" id="f4">
+			<div class="pro_nav">
+				<p class="lf">
+					家居产品
+					<a><b></b>台湾零食有哪些？</a>
+				</p>
+				<ul class="rt">
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;进口酒&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;进口冲饮&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;进口直采&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;海购轻奢&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;海购电器&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;海购母婴</li>
+				</ul>
+			</div>
+			<ul class="product_content">
+				<li class="pro_rec">
+					<ul>
+						<li><a>进口牛奶</a></li>
+						<li><a>进口饼干</a></li>
+						<li><a>鱼肉海味</a></li>
+						<li><a>进口坚果</a></li>
+						<li><a>进口咖啡</a></li>
+						<li><a>进口粮油</a></li>
+					</ul>
+					<img src="images/fruit.jpg"/>
+				</li>
+				<li class="replace_show">
+					<ul class="replace_show_holder3"></ul>
+					<ul class="plan_strip3"></ul>
+				</li>
+				<li>
+					<div>
+						<h3>爆款5折起</h3>
+						<p>进口水饮买1送1</p>
+						<img src="images/ChEi2leQLgmAFCEXAAAlM_5kJ1090900.jpg"/>
+					</div>
+					<div>
+						<h3>买1送1</h3>
+						<p>进口休闲零食</p>
+						<img src="images/ChEbuleQlcCAeSqcAAAun3_riBc60500.jpg"/>
+					</div>
+				</li>
+				<li>
+					<h3>进口牛奶品类中心</h3>
+					<p>爆款5.9元起</p>
+					<img src="images/ChEbvFeYeoWAYOcPAABAiSuI10405100.jpg"/>
+				</li>
+				<li>
+					<div>
+						<h3>兰蔻粉水179元</h3>
+						<p>约惠七夕浪漫开团</p>
+						<img src="images/white_water.jpg"/></div>
+					<div>
+						<h3>Vera Wang公主香水</h3>
+						<p>浪漫香水约会七夕</p>
+						<img src="images/perfume.jpg"/></div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="request_footer"></div>
+	<script src="JS/roll_search_show.js"></script>
+	<script src="JS/main_replace_show.js"></script>
+	<script src="JS/main_replace.js"></script>
+	<script src="JS/img_chang.js"></script>
+	<script src="JS/elevator.js"></script>
+	<script src="JS/jquery-1.11.3.js"></script>
+ 	<script src="JS/Chart.bundle.js"></script>
+	<script src="JS/index.js"></script>
+ </body>
+</html><!--
+
